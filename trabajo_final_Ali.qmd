@@ -1,0 +1,55 @@
+---
+title: "Proyecto final  Alisson Badilla"
+author: "Alisson Badilla Mora"
+
+---
+# Reflexion: "Este proyecto me ayudo a entender y desarrollar nuevos conocimientos complejos pero bastante aprendizaje este cuatrimestre."
+
+# Link del repositorio: https://github.com/alimora50-1/Proyecto_final.git
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+data = pd.read_csv("./proyecto_final_nayib.csv")
+
+``` 
+
+
+## Visualización de datos en Seaborn
+
+```{python}
+# Gráfico categórico - Conteo de victorias por equipo
+plt.figure(figsize=(10, 6))
+# Hacemos un gráfico de barras para mostrar cuántos partidos ganó cada equipo
+sns.countplot(data=data, x='Derrotas')
+plt.title('Conteo de Derrotas por Equipo')
+# Guardamos el gráfico como una imagen
+plt.savefig('grafico_categorico.png')
+# Mostramos el gráfico en la pantalla
+plt.show()
+```
+
+
+```{python}
+# Gráfico relacional - Relación entre victorias y derrotas
+plt.figure(figsize=(10, 6))
+# Hacemos un gráfico de dispersión para ver si hay alguna relación entre las victorias y derrotas de los equipos
+sns.scatterplot(data=data, x='Victorias', y='Derrotas', hue='Nombre')
+plt.title('Relación entre Victorias y Derrotas por Equipo')
+# Guardamos el gráfico como una imagen
+plt.savefig('grafico_relacional.png')
+# Mostramos el gráfico en la pantalla
+plt.show()
+```
+
+```{python}
+# Gráfico de distribución - Distribución de los años de los equipos
+plt.figure(figsize=(10, 6))
+# Hacemos un gráfico de histograma para ver en qué años jugaron más equipos
+sns.histplot(data=data, x='Año', kde=True)
+plt.title('Distribución de los Años de los Equipos')
+# Guardamos el gráfico como una imagen
+plt.savefig('grafico_distribucion.png')
+# Mostramos el gráfico en la pantalla
+plt.show()
+```
